@@ -1,11 +1,13 @@
 import { Brain, Bell, Settings } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { useNavigate } from "react-router-dom";
 
 interface DashboardHeaderProps {
   userName: string;
 }
 
 export const DashboardHeader = ({ userName }: DashboardHeaderProps) => {
+  const navigate = useNavigate();
   const currentHour = new Date().getHours();
   const greeting = currentHour < 12 ? "Good morning" : currentHour < 17 ? "Good afternoon" : "Good evening";
 
@@ -28,11 +30,11 @@ export const DashboardHeader = ({ userName }: DashboardHeaderProps) => {
       </div>
       
       <div className="flex items-center gap-2">
-        <Button variant="ghost" size="icon" className="relative">
+        <Button variant="ghost" size="icon" className="relative" onClick={() => navigate("/notifications")}>
           <Bell className="w-5 h-5" />
           <div className="absolute -top-1 -right-1 w-3 h-3 bg-secondary rounded-full" />
         </Button>
-        <Button variant="ghost" size="icon">
+        <Button variant="ghost" size="icon" onClick={() => navigate("/settings")}>
           <Settings className="w-5 h-5" />
         </Button>
       </div>

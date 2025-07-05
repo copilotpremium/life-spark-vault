@@ -1,50 +1,53 @@
 import { Plus, Camera, Mic, Calendar, Heart, Brain } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { useNavigate } from "react-router-dom";
 
 export const QuickActions = () => {
+  const navigate = useNavigate();
+  
   const actions = [
     {
       icon: Plus,
       label: "Add Memory",
       description: "Capture a moment",
       gradient: "bg-gradient-memory",
-      onClick: () => console.log("Add memory")
+      onClick: () => navigate("/add-memory")
     },
     {
       icon: Calendar,
       label: "New Event",
       description: "Schedule reminder",
       gradient: "bg-gradient-neural",
-      onClick: () => console.log("New event")
+      onClick: () => navigate("/new-event")
     },
     {
       icon: Camera,
       label: "Photo Memory",
       description: "Save with photo",
       gradient: "bg-gradient-warmth",
-      onClick: () => console.log("Photo memory")
+      onClick: () => navigate("/photo-memory")
     },
     {
       icon: Mic,
       label: "Voice Note",
       description: "Quick recording",
       gradient: "bg-gradient-card",
-      onClick: () => console.log("Voice note")
+      onClick: () => navigate("/voice-note")
     },
     {
       icon: Heart,
       label: "Relationship",
       description: "Update contact",
       gradient: "bg-gradient-warmth",
-      onClick: () => console.log("Relationship")
+      onClick: () => navigate("/relationships")
     },
     {
       icon: Brain,
       label: "AI Chat",
       description: "Ask assistant",
       gradient: "bg-gradient-neural",
-      onClick: () => console.log("AI chat")
+      onClick: () => navigate("/ai-chat")
     }
   ];
 
